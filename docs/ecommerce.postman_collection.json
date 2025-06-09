@@ -1,0 +1,414 @@
+{
+	"info": {
+		"_postman_id": "913f77f2-4d6c-43da-91cf-fd3e2b69ee61",
+		"name": "ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6237946",
+		"_collection_link": "https://gold-desert-994403.postman.co/workspace/ProgrammingHero~056bc253-366a-4ea0-9d95-a440c3a43e7e/collection/6237946-913f77f2-4d6c-43da-91cf-fd3e2b69ee61?action=share&source=collection_link&creator=6237946"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "asif1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/token/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "first_name",
+									"value": "asif",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "islam",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "asif1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "dhaka",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "asif1",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0145351",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/register/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "create-category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NDUzNzc4LCJpYXQiOjE3NDk0NTM0NzgsImp0aSI6IjMwZWVhMDk3MjJkOTRhMzY4NTZiZGVlMDIwMzA4MDNiIiwidXNlcl9pZCI6MX0.rdPb_OJbja0Qxd_Mc6dw6GWYhXMdkGChsVjeBE_Mduo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "electronics",
+									"type": "text"
+								},
+								{
+									"key": "slug",
+									"value": "electronics",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/products/categories/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"categories",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "category-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/products/categories/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"categories",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "product-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/products/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NDU0Mjc5LCJpYXQiOjE3NDk0NTM5NzksImp0aSI6IjlhM2VjOGUxNjYyZDRmZjI5YzdhMWUxM2UzYTY0OTk1IiwidXNlcl9pZCI6MX0.-u9IDng01Gbwvl5LFypULCa7A666MM6XgpjLsAnC7EU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Iphone",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "B-12",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "slug",
+									"value": "iphone",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "something",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "10000",
+									"type": "text"
+								},
+								{
+									"key": "sale_price",
+									"value": "10000",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/products/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "order-list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwMDYxNjQ3LCJpYXQiOjE3NDk0NTY4NDcsImp0aSI6ImZkZDE2YjdlYzQxMTQzZWViYmU3OTkxMmVlNTRmYTRjIiwidXNlcl9pZCI6MX0.TwmxAUq2vYXJ325YZjD7NWqwUvFP1atNYfeuM5lgnlM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/orders/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order-list Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwMDYxNjQ3LCJpYXQiOjE3NDk0NTY4NDcsImp0aSI6ImZkZDE2YjdlYzQxMTQzZWViYmU3OTkxMmVlNTRmYTRjIiwidXNlcl9pZCI6MX0.TwmxAUq2vYXJ325YZjD7NWqwUvFP1atNYfeuM5lgnlM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NDUyOTQzLCJpYXQiOjE3NDk0NTI2NDMsImp0aSI6IjA4YTQyNmFiY2I3NzRkZDliNTY1ZGNiYTM4M2E1MzM4IiwidXNlcl9pZCI6MX0.AfDH_BOJwp2ZOQJ0soqgY0pMQSp81_aAshQ74paNE6A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"total_price\": 11,\n  \"transaction_id\": \"ads\",\n  \"delivery_charge\": 12,\n  \"delivery_address\": \"dsf\",\n  \"contact_number\": \"12\",\n  \"items\": [\n    {\n      \"product\": 1,\n      \"quantity\": 2,\n      \"price\": 5.5\n    },\n    {\n      \"product\": 2,\n      \"quantity\": 1,\n      \"price\": 6\n    }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/orders/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NDU0Mjc5LCJpYXQiOjE3NDk0NTM5NzksImp0aSI6IjlhM2VjOGUxNjYyZDRmZjI5YzdhMWUxM2UzYTY0OTk1IiwidXNlcl9pZCI6MX0.-u9IDng01Gbwvl5LFypULCa7A666MM6XgpjLsAnC7EU",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
