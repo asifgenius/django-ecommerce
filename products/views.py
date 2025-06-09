@@ -3,6 +3,7 @@ from .models import Category, Product, ProductImage
 from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import CategorySerializer, ProductSerializer, ProductImageSerializer
 from .filters import ProductFilter  
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 # Category Views
 class CategoryListCreateView(generics.ListCreateAPIView):
@@ -11,6 +12,11 @@ class CategoryListCreateView(generics.ListCreateAPIView):
     '''
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+    def get_permissions(self):
+        if self.request.method == 'POST':
+            return [IsAuthenticated()]
+        return [AllowAny()]
 
 class CategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
     '''
@@ -30,6 +36,11 @@ class ProductListCreateView(generics.ListCreateAPIView):
     filter_backends = (DjangoFilterBackend,)
     filterset_class = ProductFilter
 
+    def get_permissions(self):
+        if self.request.method == 'POST':
+            return [IsAuthenticated()]
+        return [AllowAny()]
+
 class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
     '''
     Get, update, or delete a single product by ID.
@@ -45,6 +56,11 @@ class ProductImageListCreateView(generics.ListCreateAPIView):
     '''
     queryset = ProductImage.objects.all()
     serializer_class = ProductImageSerializer
+
+    def get_permissions(self):
+        if self.request.method == 'POST':
+            return [IsAuthenticated()]
+        return [AllowAny()]
 
 class ProductImageDetailView(generics.RetrieveUpdateDestroyAPIView):
     '''

@@ -2,6 +2,7 @@ from rest_framework import serializers
 from orders.models import Order, OrderItem
 from products.models import Product
 from users.models import User
+from users.serializers import UserSerializer
 
 class OrderItemSerializer(serializers.ModelSerializer):
     product = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all())
@@ -11,16 +12,25 @@ class OrderItemSerializer(serializers.ModelSerializer):
         fields = ['id', 'product', 'quantity', 'price']
 
 class OrderSerializer(serializers.ModelSerializer):
-    user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
     items = OrderItemSerializer(many=True)
+    user = UserSerializer(read_only=True)
 
     class Meta:
         model = Order
         fields = "__all__"
+ 
+class OrderCreateUpdateSerializer(serializers.ModelSerializer):
+    items = OrderItemSerializer(many=True)
 
+    class Meta:
+        model = Order
+        exclude = ['user']
+ 
     def create(self, validated_data):
+        request = self.context.get('request')
         items_data = validated_data.pop('items')
-        order = Order.objects.create(**validated_data)
+        user = User.objects.get(id=request.user.id)
+        order = Order.objects.create(user=user, **validated_data)
         for item_data in items_data:
             OrderItem.objects.create(order=order, **item_data)
         return order
