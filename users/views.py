@@ -9,4 +9,4 @@ class UserListAPIView(ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['full_name', 'email', 'address']
+    filterset_fields = ['first_name', 'last_name', 'email', 'address']
